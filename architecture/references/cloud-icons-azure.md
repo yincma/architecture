@@ -1,67 +1,117 @@
-### 6.2 Azure Icons (`mxgraph.azure.*`)
+### 6.2 Azure Icons
 
-Azure icons use the `mxgraph.azure` namespace. Azure services uniformly use brand blue `#0078D4` as the primary color, with some service categories having independent coloring.
+Azure icons use the `mxgraph.azure.*` stencil namespace. The primary Azure brand color is `#0078D4`.
 
-#### Compute — `fillColor=#0078D4`
+#### Compute (`fillColor=#0078D4`)
 
-| Service | Style String | Description |
-|------|-----------|------|
-| Virtual Machine | `shape=mxgraph.azure.virtual_machine;fillColor=#0078D4;strokeColor=#ffffff;` | Virtual machine |
-| App Service | `shape=mxgraph.azure.app_service;fillColor=#0078D4;strokeColor=#ffffff;` | Web app hosting |
-| Functions | `shape=mxgraph.azure.function_apps;fillColor=#0078D4;strokeColor=#ffffff;` | Serverless functions |
-| AKS | `shape=mxgraph.azure.kubernetes_services;fillColor=#0078D4;strokeColor=#ffffff;` | Kubernetes service |
-| Container Instances | `shape=mxgraph.azure.container_instances;fillColor=#0078D4;strokeColor=#ffffff;` | Container instances |
+| Service | Shape Style |
+|---------|------------|
+| Virtual Machine | `shape=mxgraph.azure.virtual_machine;` |
+| App Service | `shape=mxgraph.azure.app_service;` |
+| Azure Functions | `shape=mxgraph.azure.function_apps;` |
+| Container Instances | `shape=mxgraph.azure.container_instances;` |
+| AKS | `shape=mxgraph.azure.kubernetes_services;` |
+| Service Fabric | `shape=mxgraph.azure.service_fabric;` |
+| Batch | `shape=mxgraph.azure.batch_accounts;` |
+| VM Scale Sets | `shape=mxgraph.azure.vm_scale_sets;` |
 
-#### Storage — `fillColor=#0078D4`
+#### Storage (`fillColor=#0078D4`)
 
-| Service | Style String | Description |
-|------|-----------|------|
-| Blob Storage | `shape=mxgraph.azure.blob_storage;fillColor=#0078D4;strokeColor=#ffffff;` | Object storage |
-| Storage Accounts | `shape=mxgraph.azure.storage;fillColor=#0078D4;strokeColor=#ffffff;` | Storage accounts |
-| Managed Disks | `shape=mxgraph.azure.managed_disks;fillColor=#0078D4;strokeColor=#ffffff;` | Managed disks |
-| File Storage | `shape=mxgraph.azure.file_storage;fillColor=#0078D4;strokeColor=#ffffff;` | File storage |
+| Service | Shape Style |
+|---------|------------|
+| Blob Storage | `shape=mxgraph.azure.blob_storage;` |
+| Storage Accounts | `shape=mxgraph.azure.storage;` |
+| Queue Storage | `shape=mxgraph.azure.queue_storage;` |
+| Table Storage | `shape=mxgraph.azure.table_storage;` |
+| File Storage | `shape=mxgraph.azure.file_storage;` |
+| Data Lake Storage | `shape=mxgraph.azure.data_lake_storage;` |
+| Managed Disks | `shape=mxgraph.azure.managed_disks;` |
 
-#### Database — `fillColor=#0078D4`
+#### Database (`fillColor=#0078D4`)
 
-| Service | Style String | Description |
-|------|-----------|------|
-| SQL Database | `shape=mxgraph.azure.sql_databases;fillColor=#0078D4;strokeColor=#ffffff;` | SQL database |
-| Cosmos DB | `shape=mxgraph.azure.cosmos_db;fillColor=#0078D4;strokeColor=#ffffff;` | Multi-model database |
-| Cache for Redis | `shape=mxgraph.azure.cache_for_redis;fillColor=#0078D4;strokeColor=#ffffff;` | Redis cache |
-| SQL Data Warehouse | `shape=mxgraph.azure.sql_data_warehouses;fillColor=#0078D4;strokeColor=#ffffff;` | Data warehouse |
+| Service | Shape Style |
+|---------|------------|
+| SQL Database | `shape=mxgraph.azure.sql_databases;` |
+| Cosmos DB | `shape=mxgraph.azure.cosmos_db;` |
+| SQL Managed Instance | `shape=mxgraph.azure.sql_managed_instances;` |
+| Cache for Redis | `shape=mxgraph.azure.cache_for_redis;` |
+| Database for MySQL | `shape=mxgraph.azure.database_for_mysql;` |
+| Database for PostgreSQL | `shape=mxgraph.azure.database_for_postgresql;` |
+| SQL Data Warehouse | `shape=mxgraph.azure.sql_data_warehouses;` |
 
-#### Networking — `fillColor=#0078D4`
+#### Networking (`fillColor=#0078D4`)
 
-| Service | Style String | Description |
-|------|-----------|------|
-| Virtual Network | `shape=mxgraph.azure.virtual_networks;fillColor=#0078D4;strokeColor=#ffffff;` | Virtual network |
-| Load Balancer | `shape=mxgraph.azure.load_balancers;fillColor=#0078D4;strokeColor=#ffffff;` | Load balancer |
-| Application Gateway | `shape=mxgraph.azure.application_gateways;fillColor=#0078D4;strokeColor=#ffffff;` | Application gateway |
-| CDN | `shape=mxgraph.azure.content_delivery_network;fillColor=#0078D4;strokeColor=#ffffff;` | Content delivery network |
-| DNS Zone | `shape=mxgraph.azure.dns_zones;fillColor=#0078D4;strokeColor=#ffffff;` | DNS zone |
-| API Management | `shape=mxgraph.azure.api_management;fillColor=#0078D4;strokeColor=#ffffff;` | API management |
+| Service | Shape Style |
+|---------|------------|
+| Virtual Network | `shape=mxgraph.azure.virtual_networks;` |
+| Load Balancer | `shape=mxgraph.azure.load_balancers;` |
+| Application Gateway | `shape=mxgraph.azure.application_gateways;` |
+| VPN Gateway | `shape=mxgraph.azure.vpn_gateways;` |
+| DNS Zone | `shape=mxgraph.azure.dns_zones;` |
+| Traffic Manager | `shape=mxgraph.azure.traffic_manager;` |
+| CDN | `shape=mxgraph.azure.cdn;` |
+| ExpressRoute | `shape=mxgraph.azure.expressroute;` |
+| Front Door | `shape=mxgraph.azure.front_doors;` |
+| Firewall | `shape=mxgraph.azure.firewalls;` |
+| NSG | `shape=mxgraph.azure.network_security_groups;` |
 
-#### Security — `fillColor=#0078D4`
+#### Security & Identity (`fillColor=#0078D4`)
 
-| Service | Style String | Description |
-|------|-----------|------|
-| Azure AD | `shape=mxgraph.azure.active_directory;fillColor=#0078D4;strokeColor=#ffffff;` | Identity authentication |
-| Key Vault | `shape=mxgraph.azure.key_vaults;fillColor=#0078D4;strokeColor=#ffffff;` | Key vault |
-| Firewall | `shape=mxgraph.azure.azure_firewall;fillColor=#0078D4;strokeColor=#ffffff;` | Firewall |
-| NSG | `shape=mxgraph.azure.network_security_groups;fillColor=#0078D4;strokeColor=#ffffff;` | Network security group |
+| Service | Shape Style |
+|---------|------------|
+| Azure Active Directory | `shape=mxgraph.azure.azure_active_directory;` |
+| Key Vault | `shape=mxgraph.azure.key_vaults;` |
+| Security Center | `shape=mxgraph.azure.security_center;` |
+| Sentinel | `shape=mxgraph.azure.sentinel;` |
+| DDoS Protection | `shape=mxgraph.azure.ddos_protection_plans;` |
 
-#### Messaging & Integration — `fillColor=#0078D4`
+#### Application Integration (`fillColor=#0078D4`)
 
-| Service | Style String | Description |
-|------|-----------|------|
-| Service Bus | `shape=mxgraph.azure.service_bus;fillColor=#0078D4;strokeColor=#ffffff;` | Message bus |
-| Event Hub | `shape=mxgraph.azure.event_hubs;fillColor=#0078D4;strokeColor=#ffffff;` | Event hub |
-| Event Grid | `shape=mxgraph.azure.event_grid;fillColor=#0078D4;strokeColor=#ffffff;` | Event grid |
+| Service | Shape Style |
+|---------|------------|
+| Service Bus | `shape=mxgraph.azure.service_bus;` |
+| Event Grid | `shape=mxgraph.azure.event_grid;` |
+| Event Hubs | `shape=mxgraph.azure.event_hubs;` |
+| Logic Apps | `shape=mxgraph.azure.logic_apps;` |
+| API Management | `shape=mxgraph.azure.api_management;` |
+| SignalR | `shape=mxgraph.azure.signalr;` |
 
-#### Monitoring — `fillColor=#0078D4`
+#### AI & Machine Learning (`fillColor=#0078D4`)
 
-| Service | Style String | Description |
-|------|-----------|------|
-| Monitor | `shape=mxgraph.azure.azure_monitor;fillColor=#0078D4;strokeColor=#ffffff;` | Monitoring service |
-| Application Insights | `shape=mxgraph.azure.application_insights;fillColor=#0078D4;strokeColor=#ffffff;` | Application performance monitoring |
+| Service | Shape Style |
+|---------|------------|
+| Machine Learning | `shape=mxgraph.azure.machine_learning;` |
+| Cognitive Services | `shape=mxgraph.azure.cognitive_services;` |
+| Bot Service | `shape=mxgraph.azure.bot_services;` |
+| Azure OpenAI | `shape=mxgraph.azure.open_ai;` |
+| Azure AI Search | `shape=mxgraph.azure.search;` |
 
+#### Management & Monitoring (`fillColor=#0078D4`)
+
+| Service | Shape Style |
+|---------|------------|
+| Monitor | `shape=mxgraph.azure.monitor;` |
+| Log Analytics | `shape=mxgraph.azure.log_analytics;` |
+| Application Insights | `shape=mxgraph.azure.application_insights;` |
+| Automation | `shape=mxgraph.azure.automation;` |
+| Resource Groups | `shape=mxgraph.azure.resource_groups;` |
+| Policy | `shape=mxgraph.azure.policy;` |
+
+#### DevOps (`fillColor=#0078D4`)
+
+| Service | Shape Style |
+|---------|------------|
+| Azure DevOps | `shape=mxgraph.azure.devops;` |
+| Container Registry | `shape=mxgraph.azure.container_registries;` |
+| DevTest Labs | `shape=mxgraph.azure.devtest_labs;` |
+
+#### Analytics (`fillColor=#0078D4`)
+
+| Service | Shape Style |
+|---------|------------|
+| Synapse Analytics | `shape=mxgraph.azure.synapse_analytics;` |
+| Data Factory | `shape=mxgraph.azure.data_factory;` |
+| HDInsight | `shape=mxgraph.azure.hdinsight;` |
+| Databricks | `shape=mxgraph.azure.databricks;` |
+| Stream Analytics | `shape=mxgraph.azure.stream_analytics;` |
+| Power BI | `shape=mxgraph.azure.power_bi;` |

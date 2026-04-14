@@ -1,12 +1,8 @@
 # Flow, Swimlane, and Architecture Templates
 
-This reference collects the flowchart, swimlane, and architecture diagram templates split from the original skill.
+## 5.1 Flowchart
 
-## 5. Diagram Type Templates
-
-### 5.1 Flowchart
-
-Flowcharts use ellipses for start/end nodes, rounded rectangles for processing steps, and diamonds for decision nodes. The following template demonstrates a complete flow with start, processing, decision branching, and end:
+Flowcharts use ellipses for start/end nodes, rounded rectangles for processing steps, and diamonds for decision nodes.
 
 ```xml
 <mxfile>
@@ -66,20 +62,18 @@ Flowcharts use ellipses for start/end nodes, rounded rectangles for processing s
 </mxfile>
 ```
 
-Template key points:
+Key points:
 
 | Element | Shape Style | Color Scheme |
 |------|----------|------|
-| Start/End nodes | `ellipse;whiteSpace=wrap;html=1;` | Dark blue fill `fillColor=#6C8EBF;fontColor=#FFFFFF;` |
-| Processing steps | `rounded=1;whiteSpace=wrap;html=1;` | Light blue fill `fillColor=#DAE8FC;strokeColor=#6C8EBF;` |
-| Decision nodes | `rhombus;whiteSpace=wrap;html=1;` | Orange fill `fillColor=#FFE6CC;strokeColor=#D6B656;` |
-| Error handling | `rounded=1;whiteSpace=wrap;html=1;` | Red fill `fillColor=#F8CECC;strokeColor=#B85450;` |
-| Connection lines | `edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;` | — |
-| Decision branch labels | Set `"Yes"` or `"No"` in the edge's `value` attribute | — |
+| Start/End | `ellipse;whiteSpace=wrap;html=1;` | `fillColor=#6C8EBF;fontColor=#FFFFFF;` |
+| Processing | `rounded=1;whiteSpace=wrap;html=1;` | `fillColor=#DAE8FC;strokeColor=#6C8EBF;` |
+| Decision | `rhombus;whiteSpace=wrap;html=1;` | `fillColor=#FFE6CC;strokeColor=#D6B656;` |
+| Error | `rounded=1;whiteSpace=wrap;html=1;` | `fillColor=#F8CECC;strokeColor=#B85450;` |
 
-### 5.2 Swimlane Diagram
+## 5.2 Swimlane Diagram
 
-Swimlane diagrams use the `swimlane` style to create responsibility area containers, with the `startSize` attribute defining the title bar height. Child elements are placed inside the swimlane container using coordinates relative to the container's top-left corner. Cross-swimlane connection lines reference child elements in different swimlanes through `source` and `target`.
+Swimlane diagrams use `swimlane` style containers with `startSize` for the title bar height. Child elements use relative coordinates.
 
 ```xml
 <mxfile>
@@ -109,9 +103,6 @@ Swimlane diagrams use the `swimlane` style to create responsibility area contain
         <mxCell id="node-5" value="Approved?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D6B656;fontColor=#333333;" vertex="1" parent="lane-2">
           <mxGeometry x="80" y="160" width="140" height="80" as="geometry"/>
         </mxCell>
-        <mxCell id="node-7" value="Cancel Order" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontColor=#333333;" vertex="1" parent="lane-2">
-          <mxGeometry x="90" y="380" width="120" height="60" as="geometry"/>
-        </mxCell>
         <mxCell id="lane-3" value="Warehouse" style="swimlane;startSize=30;whiteSpace=wrap;html=1;container=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontStyle=1;fontSize=14;" vertex="1" parent="1">
           <mxGeometry x="720" y="40" width="300" height="480" as="geometry"/>
         </mxCell>
@@ -130,9 +121,6 @@ Swimlane diagrams use the `swimlane` style to create responsibility area contain
         <mxCell id="edge-3" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="node-5" target="node-3">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="edge-4" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;" edge="1" parent="1" source="node-5" target="node-7">
-          <mxGeometry relative="1" as="geometry"/>
-        </mxCell>
         <mxCell id="edge-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="node-3" target="node-6">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
@@ -145,23 +133,15 @@ Swimlane diagrams use the `swimlane` style to create responsibility area contain
 </mxfile>
 ```
 
-Template key points:
+Key points:
+- Swimlane container: `swimlane;startSize=30;container=1;`
+- Child `parent` set to owning swimlane ID
+- Relative coordinates within swimlane
+- Cross-swimlane edges: `parent="1"`
 
-| Key Point | Description |
-|------|------|
-| Swimlane container | Uses `swimlane;startSize=30;container=1;` style, `startSize` defines the title bar height (pixels) |
-| `container=1` | Swimlane mxCells must include this attribute to allow child elements to be placed inside the container |
-| Child element `parent` | Child element's `parent` attribute is set to the owning swimlane's `id` (e.g., `parent="lane-1"`) |
-| Relative coordinates | Child element `x`, `y` coordinates are relative to the swimlane container's top-left corner, not the canvas origin |
-| Cross-swimlane connections | Edge `parent` is set to `"1"` (default layer), `source` and `target` reference child element IDs in different swimlanes |
-| Swimlane coloring | Each swimlane uses a different color scheme for visual distinction of responsibility areas |
-| Decision branching | Diamond decision nodes can also be used within swimlanes, branch labels are set via the edge's `value` attribute |
+## 5.8 Architecture Diagram
 
-
-
-### 5.8 Architecture Diagram
-
-Architecture diagrams use rounded rectangles for system components/services, cylinders for databases, and cloud shapes for external systems, with arrowed connection lines representing data flow and call relationships. Containers can be used to group logical layers (e.g., frontend layer, service layer, data layer). The following template demonstrates a typical 3-tier web application architecture with users, frontend, backend services, cache, database, and message queue:
+Architecture diagrams use rounded rectangles for services, cylinders for databases, cloud shapes for external systems, with layer containers.
 
 ```xml
 <mxfile>
@@ -212,7 +192,7 @@ Architecture diagrams use rounded rectangles for system components/services, cyl
         <mxCell id="arch-edge-1" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="arch-user" target="arch-cdn">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="arch-edge-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="arch-cdn" target="arch-nginx">
+        <mxCell id="arch-edge-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="arch-cdn" target="arch-nginx">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
         <mxCell id="arch-edge-3" value="HTTP" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="arch-nginx" target="arch-api">
@@ -227,10 +207,10 @@ Architecture diagrams use rounded rectangles for system components/services, cyl
         <mxCell id="arch-edge-6" value="SQL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="arch-biz" target="arch-db">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="arch-edge-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="arch-biz" target="arch-cache">
+        <mxCell id="arch-edge-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="arch-biz" target="arch-cache">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
-        <mxCell id="arch-edge-8" value="Async Message" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="arch-biz" target="arch-mq">
+        <mxCell id="arch-edge-8" value="Async" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="arch-biz" target="arch-mq">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
       </root>
@@ -239,20 +219,9 @@ Architecture diagrams use rounded rectangles for system components/services, cyl
 </mxfile>
 ```
 
-Template key points:
-
-| Key Point | Description |
-|------|------|
-| User/Client | Uses PC icon or person icon to represent external users |
-| Service components | Uses `rounded=1;whiteSpace=wrap;html=1;` rounded rectangles, different layers use different color schemes |
-| Database | Uses `shape=cylinder3;boundedLbl=1;size=15;` cylinder style |
-| External service/CDN | Uses `ellipse;shape=cloud;` cloud style |
-| Message queue | Uses rounded rectangle, purple color scheme for distinction |
-| Logical layer containers | Uses `container=1;pointerEvents=0;fillColor=none;dashed=1;` dashed border containers |
-| Frontend layer | Blue dashed border (`strokeColor=#6C8EBF;`), contains CDN and reverse proxy |
-| Service layer | Green dashed border (`strokeColor=#82B366;`), contains API gateway and microservices |
-| Data layer | Orange dashed border (`strokeColor=#D6B656;`), contains database, cache, and message queue |
-| Data flow labels | Protocol or data type annotated in the connection line's `value` attribute (e.g., `HTTPS`, `gRPC`, `SQL`) |
-| Async connections | Uses `dashed=1;` dashed line style to represent asynchronous message passing |
-| Child element coordinates | Components inside layer containers use coordinates relative to the container's top-left corner |
-
+Key points:
+- Layer containers: `container=1;pointerEvents=0;fillColor=none;dashed=1;`
+- Frontend (blue), Service (green), Data (orange) layers
+- Database: `shape=cylinder3;boundedLbl=1;size=15;`
+- Async connections: `dashed=1;`
+- Data flow labels in edge `value` attribute

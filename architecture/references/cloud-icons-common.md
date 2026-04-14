@@ -19,4 +19,3 @@ Cloud architecture diagrams use draw.io's stencil library to reference cloud ser
   <mxGeometry x="{x}" y="{y}" width="60" height="60" as="geometry"/>
 </mxCell>
 ```
-

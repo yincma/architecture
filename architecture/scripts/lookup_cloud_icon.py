@@ -31,12 +31,12 @@ def parse_args() -> argparse.Namespace:
         "--format",
         choices=["json", "style", "fragment"],
         default="json",
-        help="Output format. 'style' includes the standard label/layout suffix; 'fragment' returns the raw style from the table.",
+        help="Output format.",
     )
     parser.add_argument(
         "--list",
         action="store_true",
-        help="List all services for the provider instead of performing a lookup.",
+        help="List all services for the provider.",
     )
     return parser.parse_args()
 
@@ -63,13 +63,15 @@ def parse_reference(provider: str) -> list[dict[str, Any]]:
         if not line.startswith("|"):
             continue
         parts = [part.strip() for part in line.strip("|").split("|")]
-        if len(parts) != 3:
+        if len(parts) < 2:
             continue
-        if parts[0] in {"Service", "Service Category"}:
+        if parts[0] in {"Service", "Service Category", "Icon", "Category"}:
             continue
         if set(parts[0]) == {"-"}:
             continue
-        service, style_cell, description = parts
+        service = parts[0]
+        style_cell = parts[1] if len(parts) > 1 else ""
+        description = parts[2] if len(parts) > 2 else ""
         style = style_cell.strip("`")
         if not style.startswith("shape="):
             continue
