@@ -20,6 +20,31 @@ For regular containers that do not use the `swimlane` style, include `pointerEve
 
 > **CRITICAL**: Child elements inside containers use coordinates relative to the parent container's top-left corner, not the canvas origin.
 
+When an mxCell's `parent` attribute points to a container, the `x` and `y` coordinates in that child element's `<mxGeometry>` are offsets relative to the parent container's top-left corner `(0, 0)`.
+
+#### Coordinate Calculation Example
+
+Assuming a container is at canvas coordinates `(100, 200)`, and a child element inside the container needs to be placed at offset `(30, 50)` within the container:
+
+- Container mxGeometry: `x="100" y="200" width="400" height="300"`
+- Child element mxGeometry: `x="30" y="50"` (relative to container top-left corner)
+- Child element's actual position on canvas: `(100+30, 200+50)` = `(130, 250)`
+
+```xml
+<mxCell id="container-1" value="Container"
+        style="rounded=1;whiteSpace=wrap;html=1;container=1;pointerEvents=0;fillColor=none;dashed=1;strokeColor=#666666;"
+        vertex="1" parent="1">
+  <mxGeometry x="100" y="200" width="400" height="300" as="geometry"/>
+</mxCell>
+<mxCell id="child-1" value="Child Element"
+        style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;"
+        vertex="1" parent="container-1">
+  <mxGeometry x="30" y="50" width="120" height="60" as="geometry"/>
+</mxCell>
+```
+
+> **Common mistake**: Using canvas absolute coordinates as child element coordinates. If a child element's `parent` points to a container but coordinates use canvas absolute values, the child element will appear at an incorrect position outside the container.
+
 ### 7.3 Container Style Reference
 
 #### VPC Container

@@ -19,6 +19,77 @@ When a user requests comparing multiple architecture approaches (triggered by ke
 
 **Step 3: Generate Benchmark Report**
 - Output a Markdown file named `{project}-architecture-benchmark.md`
+- The report must include:
+
+```markdown
+# Architecture Benchmark: {Project Name}
+
+## Overview
+Brief description of the system requirements and constraints.
+
+## Candidate Architectures
+
+### Option A: {Architecture Name}
+- **Diagram**: `{filename}.drawio`
+- **Summary**: 1-2 sentence description
+
+### Option B: {Architecture Name}
+- **Diagram**: `{filename}.drawio`
+- **Summary**: 1-2 sentence description
+
+### Option C: {Architecture Name}
+- **Diagram**: `{filename}.drawio`
+- **Summary**: 1-2 sentence description
+
+## Comparison Matrix
+
+| Dimension          | Option A | Option B | Option C |
+|--------------------|----------|----------|----------|
+| Development Cost   | ⭐⭐⭐⭐⭐  | ⭐⭐⭐      | ⭐⭐⭐⭐    |
+| Operational Cost   | ⭐⭐⭐⭐    | ⭐⭐        | ⭐⭐⭐⭐⭐  |
+| Scalability        | ⭐⭐       | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐⭐  |
+| Performance        | ⭐⭐⭐⭐    | ⭐⭐⭐⭐    | ⭐⭐⭐      |
+| Ops Complexity     | ⭐⭐⭐⭐⭐  | ⭐⭐        | ⭐⭐⭐⭐    |
+| Team Skill Req.    | ⭐⭐⭐⭐⭐  | ⭐⭐        | ⭐⭐⭐      |
+| Time to Market     | ⭐⭐⭐⭐⭐  | ⭐⭐        | ⭐⭐⭐⭐    |
+| Fault Isolation    | ⭐⭐       | ⭐⭐⭐⭐⭐  | ⭐⭐⭐⭐    |
+
+> ⭐ scale: ⭐ = poor, ⭐⭐⭐ = average, ⭐⭐⭐⭐⭐ = excellent
+
+## Detailed Analysis
+
+### Development Cost
+{Explain why each option scores as it does}
+
+### Operational Cost
+{Explain ongoing infrastructure and maintenance costs for each option}
+
+### Scalability
+{Explain scaling characteristics of each option}
+
+### Performance
+{Explain latency and throughput under normal load}
+
+### Ops Complexity
+{Explain deployment, monitoring, debugging difficulty}
+
+### Team Skill Requirements
+{Explain expertise needed to build and maintain}
+
+### Time to Market
+{Explain speed from design to production}
+
+### Fault Isolation
+{Explain blast radius when a component fails}
+
+## Recommendation
+Based on the requirements, **Option X** is recommended because...
+
+### When to Choose Each Option
+- **Option A**: Best when {conditions}
+- **Option B**: Best when {conditions}
+- **Option C**: Best when {conditions}
+```
 
 **Step 4: Evaluation Dimensions**
 - Development Cost, Operational Cost, Scalability, Performance, Ops Complexity, Team Skill Requirements, Time to Market, Fault Isolation

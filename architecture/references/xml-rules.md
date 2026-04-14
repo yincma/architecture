@@ -51,6 +51,16 @@ Vertices represent shape nodes (rectangles, ellipses, diamonds, etc.). They must
 </mxCell>
 ```
 
+`<mxGeometry>` attribute requirements:
+
+| Attribute | Required | Description |
+|------|------|------|
+| `x` | Yes | X coordinate, must be a multiple of 10 |
+| `y` | Yes | Y coordinate, must be a multiple of 10 |
+| `width` | Yes | Width (pixels) |
+| `height` | Yes | Height (pixels) |
+| `as` | Yes | Must be `"geometry"` |
+
 #### Edge
 
 Edges represent connection lines. They must include the `edge="1"` attribute.
@@ -65,6 +75,20 @@ Edges represent connection lines. They must include the `edge="1"` attribute.
   <mxGeometry relative="1" as="geometry"/>
 </mxCell>
 ```
+
+Edge attribute requirements:
+
+| Attribute | Required | Description |
+|------|------|------|
+| `id` | Yes | Unique identifier |
+| `value` | No | Label text on the connection line |
+| `style` | Yes | Style string, should include `edgeStyle=orthogonalEdgeStyle` |
+| `edge` | Yes | Must be `"1"` |
+| `parent` | Yes | Parent element ID, usually `"1"` |
+| `source` | Recommended | Source node ID |
+| `target` | Recommended | Target node ID |
+
+The edge's `<mxGeometry>` must include `relative="1"`. To add path control points, nest `<Array as="points">` and `<mxPoint>` elements inside `<mxGeometry>`.
 
 #### vertex and edge Are Mutually Exclusive
 
